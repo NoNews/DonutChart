@@ -69,7 +69,6 @@ fun DonutChart(
         }
     }
 
-
     Canvas(
         modifier = modifier
             .pointerInput(Unit) {
@@ -83,10 +82,7 @@ fun DonutChart(
                         ) {
                             return@detectTapGestures
                         }
-
-
                         val clickedArea = detectClickArea(clickOffset = offset, canvasSize = size)
-
                         val sliceIndex =
                             anglesInfo.indexOfFirst { sliceInfo -> clickedArea in sliceInfo.startAngle..sliceInfo.endAngle }
                         onSliceClicked.invoke(slices[sliceIndex])
@@ -100,7 +96,6 @@ fun DonutChart(
             totalPercentage += it.value
         }
         val radius = size.width / 2f
-
 
         slices.forEachIndexed { index, data ->
             val slicePercentage = data.value / totalPercentage
@@ -120,7 +115,6 @@ fun DonutChart(
                     useCenter = false,
                     style = Stroke(width = strokeSize.toPx())
                 )
-
 
                 val textMeasureResult = textMeasureResults[index]
                 val textPositionOffset = calculateTextPositionOffset(
@@ -152,7 +146,6 @@ fun DonutChart(
                         height = shadowRadius * 2f
                     )
                 )
-
             }
 
             anglesInfo.add(
